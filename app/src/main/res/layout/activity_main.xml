@@ -51,6 +51,7 @@
         android:id="@+id/customize"
         android:layout_width="278dp"
         android:layout_height="55dp"
+        android:onClick="customize"
         android:text="Customize options"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
