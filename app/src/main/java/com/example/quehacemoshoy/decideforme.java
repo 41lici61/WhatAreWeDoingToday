@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class decideforme extends AppCompatActivity {
 
-    String[] options = new String[9];
+    String[] options = new String[8];
     private TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,10 @@ public class decideforme extends AppCompatActivity {
                 "Go buy milk, sugar, and strawberries, then make strawberry milk. Invite your best friend to have some with you!",
                 "Host a tea party and invite your best friend.",
                 "Play online pool until you win 3 games in a row.",
-                "Reflect on immigration in your country for one hour by yourself and write down your conclusions.",
                 "Reflect on your ideal future for one hour and write down your conclusions.", "Fill the bathtub and take a 20-minute bath while listening to music.",
                 "Call your closest family member and talk with them about this app."};
-        Toast.makeText(this, options[1], Toast.LENGTH_SHORT).show();
 
-        int numero = (int) (Math.random() * 10);
+        int numero = (int) (Math.random() * 9);
         tv.setText(options[numero]);
     }
 
