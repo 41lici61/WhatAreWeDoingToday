@@ -11,9 +11,8 @@
         android:id="@+id/fondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_register_background"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="33dp" />
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_register_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,10 +20,11 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Resto de tu contenido igual -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mis Opciones Personalizadas"
+            android:text="My Custom Options"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -42,9 +42,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Escribe una nueva actividad..."
-                android:textColorHint="#CCCCCC"
-                android:textColor="#FFFFFF"
+                android:hint="Enter a new activity..."
+                android:textColorHint="#0093A0"
+                android:textColor="#00E4FF"
                 android:background="@android:drawable/editbox_background"
                 android:padding="12dp"
                 android:layout_marginEnd="8dp"/>
@@ -53,14 +53,14 @@
                 android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Agregar"
+                android:text="Add"
                 android:backgroundTint="#4CAF50"/>
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mis opciones:"
+            android:text="My Options:"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:layout_marginBottom="8dp"/>
@@ -83,7 +83,7 @@
             android:id="@+id/btnChooseRandom"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="¡ELEGIR UNA OPCIÓN ALEATORIA!"
+            android:text="CHOOSE A RANDOM OPTION!"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -95,7 +95,7 @@
             android:id="@+id/tvSelectedOption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Presiona el botón para elegir una opción"
+            android:text="Press the button to choose an option"
             android:textColor="#FFEB3B"
             android:textSize="16sp"
             android:gravity="center"
@@ -107,7 +107,7 @@
             android:id="@+id/btnClearAll"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:text="Limpiar todas las opciones"
+            android:text="Clear All Options"
             android:backgroundTint="#F44336"
             android:textColor="#FFFFFF"/>
 

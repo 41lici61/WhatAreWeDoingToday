@@ -15,13 +15,11 @@
         android:alpha="0.85"
         app:srcCompat="@drawable/ic_register_background" />
 
-    <!-- Semi-transparent overlay for better text readability -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#80000000" />
 
-    <!-- Card container for the message -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,15 +38,14 @@
             android:padding="32dp"
             android:gravity="center">
 
-            <!-- Decorative emoji as text instead -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎲"
-                android:textSize="64sp"
-                android:alpha="0.7" />
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/buttonblue"
+                android:contentDescription="Decorative icon"
+                android:alpha="0.9"
+                android:adjustViewBounds="true" />
 
-            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +56,6 @@
                 android:textStyle="bold"
                 android:letterSpacing="0.05" />
 
-            <!-- Divider -->
             <View
                 android:layout_width="60dp"
                 android:layout_height="2dp"
@@ -67,7 +63,6 @@
                 android:layout_marginBottom="12dp"
                 android:background="#3498DB" />
 
-            <!-- Main message text -->
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -79,7 +74,6 @@
                 android:lineSpacingExtra="8dp"
                 android:padding="8dp" />
 
-            <!-- Hint/Small text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

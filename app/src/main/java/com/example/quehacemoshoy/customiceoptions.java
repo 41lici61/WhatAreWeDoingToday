@@ -50,6 +50,15 @@ public class customiceoptions extends AppCompatActivity {
         optionsList = new ArrayList<>();
 
         agregarOpcionEjemplo("Go for a walk");
+        agregarOpcionEjemplo("Listen to a music album and rate each song from 1 to 5.");
+        agregarOpcionEjemplo("Go outside and photograph 10 flowers (you could even create a photo album of local flowers!).");
+        agregarOpcionEjemplo("Draw a self-portrait in no more than 10 minutes and upload it to Instagram.");
+        agregarOpcionEjemplo("Go buy milk, sugar, and strawberries, then make strawberry milk. Invite your best friend to have some with you!");
+        agregarOpcionEjemplo("Host a tea party and invite your best friend.");
+        agregarOpcionEjemplo("Play online pool until you win 3 games in a row.");
+        agregarOpcionEjemplo("Reflect on your ideal future for one hour and write down your conclusions.");
+        agregarOpcionEjemplo("Fill the bathtub and take a 20-minute bath while listening to music.");
+        agregarOpcionEjemplo("Call your closest family member and talk with them about this app.");
 
         btnAdd.setOnClickListener(v -> agregarOpcion());
         btnClearAll.setOnClickListener(v -> limpiarTodasOpciones());
@@ -121,19 +130,19 @@ public class customiceoptions extends AppCompatActivity {
 
     private void elegirOpcionAleatoria() {
         if (optionsList.isEmpty()) {
-            tvSelectedOption.setText("⚠️ There are no options to delete.");
+            tvSelectedOption.setText("⚠️ There are no options");
             Toast.makeText(this, "Add some options first?", Toast.LENGTH_LONG).show();
         } else {
             Random random = new Random();
             int index = random.nextInt(optionsList.size());
             String opcionElegida = optionsList.get(index);
-            tvSelectedOption.setText("✨ The Chosen One: ✨\n\n" + opcionElegida);
+            tvSelectedOption.setText("✨ You got: ✨\n\n" + opcionElegida);
 
             btnChooseRandom.setBackgroundTintList(getResources().getColorStateList(android.R.color.holo_green_dark));
             btnChooseRandom.postDelayed(() ->
                     btnChooseRandom.setBackgroundTintList(getResources().getColorStateList(android.R.color.holo_blue_dark)), 500);
 
-            Toast.makeText(this, "The Chosen One: " + opcionElegida, Toast.LENGTH_SHORT).show();
+
         }
     }
 

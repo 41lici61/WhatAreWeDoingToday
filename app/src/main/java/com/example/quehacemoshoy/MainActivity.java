@@ -32,13 +32,11 @@ public class MainActivity extends AppCompatActivity {
     public void decideforme(View v){
         Intent intent = new Intent(this, decideforme.class);
         startActivity(intent);
-        Toast.makeText(this, "Decide for me selected", Toast.LENGTH_SHORT).show();
     }
 
     public void customize(View v){
         Intent intent = new Intent(this, customiceoptions.class);
         startActivity(intent);
-        Toast.makeText(this, "Customize options selected", Toast.LENGTH_SHORT).show();
     }
 
 }

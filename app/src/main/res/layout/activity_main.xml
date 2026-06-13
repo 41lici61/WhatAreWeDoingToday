@@ -13,9 +13,8 @@
         android:id="@+id/fondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_login_background"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_login_background" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -64,6 +63,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.894" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
