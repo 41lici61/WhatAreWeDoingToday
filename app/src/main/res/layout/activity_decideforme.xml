@@ -11,27 +11,86 @@
         android:id="@+id/fondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foregroundTint="#BA3535"
-        android:foregroundTintMode="multiply"
-        app:srcCompat="@drawable/ic_register_background"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:scaleType="centerCrop"
+        android:alpha="0.85"
+        app:srcCompat="@drawable/ic_register_background" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <!-- Semi-transparent overlay for better text readability -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000" />
+
+    <!-- Card container for the message -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:shadowColor="#0092C7"
-        android:shadowDx="30"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="32dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="#E6FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:gravity="center">
+
+            <!-- Decorative emoji as text instead -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎲"
+                android:textSize="64sp"
+                android:alpha="0.7" />
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Your Challenge"
+                android:textColor="#2C3E50"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="60dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="#3498DB" />
+
+            <!-- Main message text -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="#2C3E50"
+                android:textSize="20sp"
+                android:lineSpacingExtra="8dp"
+                android:padding="8dp" />
+
+            <!-- Hint/Small text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="✨ Try it again ✨"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
