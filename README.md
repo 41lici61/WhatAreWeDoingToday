@@ -29,16 +29,8 @@ Perfect for:
 ## 📲 Installation & Usage
 How to install the app:
 
-Download the APK file
 Download the file WhatAreWeDoingTodayApp.apk to your Android mobile device.
-Enable unknown sources (if you haven't already)
-
-Go to:
-Settings → Security → Unknown sources (or Install unknown apps)
-and allow installation from your file browser or browser.
-
-Install the APK
-Open the downloaded .apk file and tap "Install".
+Open file and select "install". If Google Play Protect blocks the installation, just press "more details" and then "install anyway"
 
 Open the app
 Once installed, tap "Open" or find the app icon in your app drawer.
@@ -117,7 +109,6 @@ app/
 
 ## 🚀 Future Improvements
 
-* Save customize options
 * Add categories (food, movies, activities)
 * Add animations for selection
 * Dark mode support
