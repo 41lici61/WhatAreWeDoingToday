@@ -94,19 +94,6 @@ Not happy with the result? Just press the button again to get a new random optio
 
 ---
 
-## 🧱 Project Structure
-
-```
-app/
- ├── activities/        # Main screens
- ├── adapters/          # List adapters (if used)
- ├── models/            # Data structures
- ├── utils/             # Random logic and helpers
- └── res/               # Layouts, strings, UI resources
-```
-
----
-
 ## 🚀 Future Improvements
 
 * Add categories (food, movies, activities)
