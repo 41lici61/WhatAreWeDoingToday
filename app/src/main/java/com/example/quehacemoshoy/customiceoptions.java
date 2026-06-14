@@ -1,5 +1,6 @@
 package com.example.quehacemoshoy;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,9 @@ public class customiceoptions extends AppCompatActivity {
     private TextView tvSelectedOption;
     private ArrayList<String> optionsList;
 
+    private static final String PREFS_NAME = "CustomOptionsPrefs";
+    private static final String OPTIONS_COUNT_KEY = "options_count";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,25 +53,62 @@ public class customiceoptions extends AppCompatActivity {
 
         optionsList = new ArrayList<>();
 
-        agregarOpcionEjemplo("Go for a walk");
-        agregarOpcionEjemplo("Listen to a music album and rate each song from 1 to 5.");
-        agregarOpcionEjemplo("Go outside and photograph 10 flowers (you could even create a photo album of local flowers!).");
-        agregarOpcionEjemplo("Draw a self-portrait in no more than 10 minutes and upload it to Instagram.");
-        agregarOpcionEjemplo("Go buy milk, sugar, and strawberries, then make strawberry milk. Invite your best friend to have some with you!");
-        agregarOpcionEjemplo("Host a tea party and invite your best friend.");
-        agregarOpcionEjemplo("Play online pool until you win 3 games in a row.");
-        agregarOpcionEjemplo("Reflect on your ideal future for one hour and write down your conclusions.");
-        agregarOpcionEjemplo("Fill the bathtub and take a 20-minute bath while listening to music.");
-        agregarOpcionEjemplo("Call your closest family member and talk with them about this app.");
+        cargarOpcionesGuardadas();
+
+        if (optionsList.isEmpty()) {
+            cargarOpcionesPorDefecto();
+        }
 
         btnAdd.setOnClickListener(v -> agregarOpcion());
         btnClearAll.setOnClickListener(v -> limpiarTodasOpciones());
         btnChooseRandom.setOnClickListener(v -> elegirOpcionAleatoria());
     }
 
-    private void agregarOpcionEjemplo(String opcion) {
-        optionsList.add(opcion);
-        agregarVistaOpcion(opcion);
+    private void cargarOpcionesPorDefecto() {
+        String[] opcionesPorDefecto = {
+                "Go for a walk",
+                "Listen to a music album and rate each song from 1 to 5.",
+                "Go outside and photograph 10 flowers (you could even create a photo album of local flowers!).",
+                "Draw a self-portrait in no more than 10 minutes and upload it to Instagram.",
+                "Go buy milk, sugar, and strawberries, then make strawberry milk. Invite your best friend to have some with you!",
+                "Host a tea party and invite your best friend.",
+                "Play online pool until you win 3 games in a row.",
+                "Reflect on your ideal future for one hour and write down your conclusions.",
+                "Fill the bathtub and take a 20-minute bath while listening to music.",
+                "Call your closest family member and talk with them about this app."
+        };
+
+        for (String opcion : opcionesPorDefecto) {
+            optionsList.add(opcion);
+            agregarVistaOpcion(opcion);
+        }
+        guardarOpciones();
+    }
+
+    private void cargarOpcionesGuardadas() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        int count = prefs.getInt(OPTIONS_COUNT_KEY, 0);
+
+        for (int i = 0; i < count; i++) {
+            String opcion = prefs.getString("option_" + i, null);
+            if (opcion != null) {
+                optionsList.add(opcion);
+                agregarVistaOpcion(opcion);
+            }
+        }
+    }
+
+    private void guardarOpciones() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putInt(OPTIONS_COUNT_KEY, optionsList.size());
+
+        for (int i = 0; i < optionsList.size(); i++) {
+            editor.putString("option_" + i, optionsList.get(i));
+        }
+
+        editor.apply();
     }
 
     private void agregarOpcion() {
@@ -77,9 +118,10 @@ public class customiceoptions extends AppCompatActivity {
             optionsList.add(nuevaOpcion);
             agregarVistaOpcion(nuevaOpcion);
             etNewOption.setText("");
-            Toast.makeText(this, "Option added", Toast.LENGTH_SHORT).show();
+            guardarOpciones();
+            Toast.makeText(this, "Option added and saved", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Please enter a option", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter an option", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -111,6 +153,7 @@ public class customiceoptions extends AppCompatActivity {
         btnDelete.setOnClickListener(v -> {
             optionsList.remove(opcion);
             containerOptions.removeView(itemLayout);
+            guardarOpciones();
             Toast.makeText(customiceoptions.this, "Option deleted", Toast.LENGTH_SHORT).show();
         });
 
@@ -141,15 +184,20 @@ public class customiceoptions extends AppCompatActivity {
             btnChooseRandom.setBackgroundTintList(getResources().getColorStateList(android.R.color.holo_green_dark));
             btnChooseRandom.postDelayed(() ->
                     btnChooseRandom.setBackgroundTintList(getResources().getColorStateList(android.R.color.holo_blue_dark)), 500);
-
-
         }
     }
 
     private void limpiarTodasOpciones() {
         optionsList.clear();
         containerOptions.removeAllViews();
+        guardarOpciones();
         tvSelectedOption.setText("Press the button to choose");
         Toast.makeText(this, "All options were deleted", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        guardarOpciones();
     }
 }
