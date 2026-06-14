@@ -1,5 +1,5 @@
 
-# 🎲 What Are We Doing Today? (WORK IN PROGRESS)
+# 🎲 What Are We Doing Today?
 
 An Android application built in **Java** that helps you decide what to do when you can’t choose.
 
@@ -23,6 +23,50 @@ Perfect for:
 * Couples deciding plans
 * Solo users looking for inspiration
 * Reducing decision fatigue
+
+---
+
+## 📲 Installation & Usage
+How to install the app:
+
+Download the APK file
+Download the file WhatAreWeDoingTodayApp.apk to your Android mobile device.
+Enable unknown sources (if you haven't already)
+
+Go to:
+Settings → Security → Unknown sources (or Install unknown apps)
+and allow installation from your file browser or browser.
+
+Install the APK
+Open the downloaded .apk file and tap "Install".
+
+Open the app
+Once installed, tap "Open" or find the app icon in your app drawer.
+
+**How to use the app:**
+
+Main screen – Choose between:
+
+"Decide for me" → Uses 10 predefined activities
+
+"Customize options" → Create your own list
+Using predefined options
+Press the "Decide for me" button and the app will instantly show you a random activity.
+
+Creating custom options
+
+Go to "Customize options"
+
+Type a new activity in the text field
+
+Press "Add" to save it
+
+Press "CHOOSE A RANDOM OPTION" to pick from your list
+
+Use "Clear All Options" to reset your list
+Re-roll
+
+Not happy with the result? Just press the button again to get a new random option.
 
 ---
 
@@ -73,11 +117,10 @@ app/
 
 ## 🚀 Future Improvements
 
-* Save favorite options
+* Save customize options
 * Add categories (food, movies, activities)
 * Add animations for selection
 * Dark mode support
-* History of previous choices
 
 ---
 
