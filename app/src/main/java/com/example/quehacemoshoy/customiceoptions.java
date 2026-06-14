@@ -66,16 +66,7 @@ public class customiceoptions extends AppCompatActivity {
 
     private void cargarOpcionesPorDefecto() {
         String[] opcionesPorDefecto = {
-                "Go for a walk",
-                "Listen to a music album and rate each song from 1 to 5.",
-                "Go outside and photograph 10 flowers (you could even create a photo album of local flowers!).",
-                "Draw a self-portrait in no more than 10 minutes and upload it to Instagram.",
-                "Go buy milk, sugar, and strawberries, then make strawberry milk. Invite your best friend to have some with you!",
-                "Host a tea party and invite your best friend.",
-                "Play online pool until you win 3 games in a row.",
-                "Reflect on your ideal future for one hour and write down your conclusions.",
-                "Fill the bathtub and take a 20-minute bath while listening to music.",
-                "Call your closest family member and talk with them about this app."
+                "Go for a walk (for example)"
         };
 
         for (String opcion : opcionesPorDefecto) {
